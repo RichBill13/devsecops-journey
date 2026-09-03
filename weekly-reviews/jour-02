@@ -1,0 +1,64 @@
+## Jour 02- introduction a linux (lfs 101)
+
+## 01 Comptes utilisateurs
+
+chaque utilisateur linux est identifie par:
+ -UID (unique identifier)
+ -une BASE DE DONNEES distincte
+
+lors de la creation d'un compte, les informations du nouvel utilisateur sont ajoutes a la base de 
+donnees et son repertoire personnel doit etre creer et initialise avec des fichiers essentiels.
+
+## 02 Commandes(Creation et Suppression nouvel utilisateur)
+
+-useradd
+-userdel
+
+## 03 champs conserves dans le fichier etc/password
+
+-Nom d'utilisateur
+-Mot de passe(qui est conserve dans le fichier etc/shadow)
+-UID chaque user doit avoir un uid unique
+-GID(identifiant de groupe) stockes dans etc/group
+-informations user(nom etc)
+-Annuaire d'acceuil: chemin absolue du repertoire personnel de l'utilisateur
+-Coquille: emplacement absolue du shell par defaut
+
+## 04 Types de comptes
+
+Par defaut, Linux distingue plusieurs type de compte afin d'isoler les processus et les charges de travail
+-racine: le compte le plus priviligie sur des systemes Linux/Unix car il permet d'effectuer tout type d'operation d'administration systeme. son utilisation requiert la plus grande des prudences car il ne fait l'objet d'aucune restriction de securite.(on le reconnait tres souvent au # affiche dans l'invite de commande.)
+
+-systeme
+-normal
+-reseau
+
+pour garantir un environnement de travail securise, il est conseille d'accorder aux differents comptes, les privileges minimaux necessaires et de supprimer les comptes inactifs.
+
+## 05 Operations necessitant des privileges root
+
+Les privileges root sont requis pour effectuer des operations tel que:
+-creation , suppression et gestion des comptes utilisateurs
+-gestion des progiciels
+-suppression et modification des fichiers systeme
+-redemarrage des services systeme
+
+le SUID est un type special d'autorisation d'execution de fichier, son utilisation permet temporairement a un user d'executer un programme avec les permissions du proprietaire du fichier.
+
+## 06 Comparaison SU et SUDO
+
+les deux commandes sont utilisees pour accorder temporairement des privileges d'administrateur a un user normal.
+
+la difference: SU change completement d'utilisateur(parfois pour devenire root), tandis que SUDO permet d'executer une seule commande avec les privileges d'un autre utilisateur sans changer de session.
+
+SUDO permet de garder une trace des tentatives infructueuses d'obtention des privileges root.
+lorsque SUDO est invoque, un mecanisme examine les fichiers etc/sudoers et etc/sudoers.d pour determiner si l'utilisateur est autorise a utilise sudo et quel est l'etendu des ses privileges.
+pour modifier les deux fichiers de config , nous devons utiliser la commande visudo
+
+## 07 Journalisation des commandes
+
+par defaut, les commandes sudo et leurs echecs sont consignes dans le fichier /var/log/auth.log pour les distributions DEBIANS et dans /var/log/message et /var/log/secure pour les autres distributions.
+Il s'agit d'une mesure de suivis et de securite importante , permettant le suivis et la tracabilite de l'utilisation de sudo
+
+## Labs realises
+- [lab 01 - Utilisateur et sudo] (../labs/linux-fundamentals/lab-01-utilisateurs-sudo.md)
