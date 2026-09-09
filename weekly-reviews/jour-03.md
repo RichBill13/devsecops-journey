@@ -1,17 +1,19 @@
-## Jour 03- introduction a linux (lfs 101)
+## CLI vs GUI
+linux nous offre 2 moyens different d'interagir avec notre system:
+-le command line interface(CLI)
+-le graphical user interface(GUI)
 
-## 01 Comment les mots de passe sont stockes
- a l'epoque les mdp etaient stockes dans le fichier /etc/passwd qui etait accessible a tous , facilitant ainsi leur piratage.
- sous les sytemes moderne ce n'est plus le cas ils sont desormais stockes sous forme chiffree et dans un fichier secondaire /etc/shadow. 
- seuls les users disposant des droits admin(root), peuvent lire ou modifier ce fichier.
+## comment le graphical desktop load
+c'est le display manager qui est responsable du chargement du graphical desktop
+chaque environnement de bureau repose sur deux composants fondamentaux:
+-UN GESTIONNAIRE DE SESSION: qui lance et maintient les elements de la session graphique
+-UN GESTIONNAIRE DE FENETRE: qui controle l'affichage, le deplacement, le redimensionnement et la decoration des fenetres a l'ecran.
 
- ## 02 Cryptage des mots de passe
+## Environnement de Bureau
+-Gnome: C'est l'environnement de bureau le plus repandu dans l'ecosysteme Linux.
+-KDE Plasma: 
+-XFCE et LXQt:
+-Cinnamon: l'environnement de bureau pour Linux Mint
 
- la plupart des distributions linux utilisent un algorithme de chiffrement moderne appele SHA-512(Secure Hashing Algorithme 512bits) developpe par la NSA pour chiffrer les mots de passe.
- l'algorithme SHA-512 est largement utilise dans les applications et protocoles de securite, notamment TLS, SSL, PHP, SSH, S/MIME etc.
-
- ## 03 Bonne pratiques en matiere de mots de passe
-
- -renouvellement automatique des mdp: envoi de notifications aux user leurs demandant de creer un nouveau mdp(ainsi meme en cas de piratage, les mdp ne seront utilisables que pendant une duree limitee.)
- -imposer aux users une definitions de mdp robustes grace aux modules d'authentification enfichables(PAM)(les PAM sont configurer pour verifier la robustesse des mdp crees ou modifiees avec l'utilitaire passwd. leurs configuration se fait via les bibliotheque pam_cracklib.so ou pam_passwdqc.so)
- -installation de logiciels de piratage de mpd(JOHN THE RIPPER) afin de securiser le fichier de mots de passe et de detecter les mdp faibles.
+## Trash folder
+les fichiers et elemets supprimes peuvent etre localise dans le fichier .local/share/Trash/files/
