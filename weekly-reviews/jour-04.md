@@ -86,3 +86,47 @@ permet de supprimer le repertoire sampdir si et seulement si il ya rien a l'inte
 
 ## rm -rf sampdir
 permet de supprimer le repertoire et les sous repertoires
+
+## stdin, stdout, stderr
+les 3 differents 
+{
+    -(<): permet de lire les donnees depuis le fichier au lieu du clavier
+    -(>): ecrase le fichier s'il existe et y ecrit le resultat normal
+    -(2>): les messages d'erreur sont enregistres dans le fichier, la sortie normale reste a l'ecran.
+    -(>>): ajouter du contenu sans ecraser
+}
+
+## definition
+A PIPE takes the output of one command and feeds it directly in as the input of the next. (|)
+
+## structure a 2 niveaux pour les package management(package managment system)
+Linux divise la gestion des logiciels en deux categories
+
+##  1. Outils de bas niveau(dpkg, rpm)
+-travaille sur les fichiers de paquets locaux(.deb ou .rpm)
+-ils installent ou desinstallent un fichier precis, mais ne savent pas telecharger sur internet et ne gere pas les dependances.
+
+##  2. Outils de haut niveau(apt, dnf, zypper)
+-se connectent aux depots distants sur internet
+-resolvent automatiquement les dependances(si le paquet A a besoin du paquet B, ils telechargent et installent A et B ensemble.)
+-utilisent les outils de bas niveau en arriere plan pour faire le travail d'extraction.
+
+## Famille Debian/Ubuntu (apt) : (dnf)Famille Red Hat/Fedora
+-apt update
+-apt search foo(chercher un paquet)
+-apt install foo(installer un paquet)
+-apt remove foo(supprimer un paquet)
+-apt autoremove(nettoyer les dependances inutiles)
+-apt upgrade(mettre a jour tout le systeme)
+
+## apt update
+ne met a jour aucun logiciel. il telecharge uniquement la liste actualisee des paquets disponibles sur les serveurs.
+
+## apt upgrade
+telecharge et installe les nouvelles versions des logiciels a partir de cette liste.
+
+## apt remove
+supprime le programme mais garde ses fichiers de configuration
+
+## apt purge
+supprime le programme et ses fichiers de configuration.
