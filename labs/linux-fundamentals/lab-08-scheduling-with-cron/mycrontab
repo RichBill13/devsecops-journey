@@ -1,0 +1,1 @@
+5 11 * * * /tmp/myjob.sh >> /tmp/myjob.log 2>&1
