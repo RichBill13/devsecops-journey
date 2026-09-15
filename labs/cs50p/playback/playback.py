@@ -1,6 +1,6 @@
 def main():
-    phrase = str(input("texte: "))
+    phrase = input("texte: ")
     phrase_converti = phrase.replace(" ", "...")
-    print("converti:", phrase_converti)
+    print(phrase_converti)
 
 main()
