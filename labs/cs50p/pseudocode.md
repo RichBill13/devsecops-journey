@@ -32,3 +32,9 @@
 
 
 • Quel est le format exact demandé ? (Espaces, majuscules, décimales ?)
+
+
+
+
+entrees: la commande en input, texte, repetees
+etat/memoire:
