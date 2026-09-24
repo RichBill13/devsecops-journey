@@ -1,10 +1,9 @@
-def main():
-    name = input("what's your name? ")
-    hello(name)
-    hello()
+while True:
+    try:
+        x = int(input("What's is x? "))
+    except ValueError:
+        print("x is not an integer")
+    else:
+        break
 
-def hello(to="world"):
-    print("hello,", to)
-
-
-main()
+print(f"x is {x}")
