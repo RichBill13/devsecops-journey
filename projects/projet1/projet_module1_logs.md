@@ -25,3 +25,17 @@ cette commande permet d'executer le script python de generation de logs
 -4.<uniq -c>: la commande <uniq>,sert a supprimer les lignes doublons consecutives et l'option <c> permet de compter les occurences de chaque ligne: resultat, une liste ou chaque IP unique est precedee du nombre de fois ou elle apparait.
 -5.<sort -nr>:sert a trier les lignes par ordre numerique decroissant. l'option <n>, demande a <sort> de trier les elts en tant que nombre(ou 10 vient apres 2) et non en tant que texte(ou "10" viendrait avant "2" a cause de "1") et <r>, inverse l'ordre du tri pour aller du plus grand au plus petit.
 -6.<head -n 5>: sert a eviter d'avoir des centaines de lignes qui defilent dans le terminal, on tronque le resultat avec <head>. ici <n> represente le nombre de ligne
+
+## retrouver le nombre de 404
+1. on a le choix, soit d'utiliser <grep> ou encore pour plus de precision<awk>
+2. avec <grep>: on compte directement le nombre de ligne qui contiennent le motif <404>: <grep -c '" 404 ' access.log>. <c>, compte directement les ligne qui contiennent le motif
+3. avec <awk>: <awk '$9 == 404' access.log | wc -l>: on regarde la structure exacte d'une ligne dans notre fichier <access.log>, on identifie le numero de colonne ou se trouve les codes de statut http.<wc>(word count), sert a compter le nombre de mots dans un texte, en l'associant avec l'option/drapeau <l>(lignes): <wc -l>, elle sert a compter le nombre de ligne dans un fichier ou dans le resultat d'une commande.
+
+## Nombres de requettes par heure
+1.<awk -F: '{print $2 "h"}' access.log | sort | uniq -c | head -n 5>:
+-<F>(field separator): permet de dire a <awk> de ne pas utiliser l'espace pour couper la ligne, mais le caractere que je mets juste apres(:)
+-<'{print $2 "h"}'>: permet d'imprimer la deuxieme colone apres avoir changer le caractere de separation, suivie de la lettre <h>
+
+## Nombres de requettes par date
+1. <awk '{print substr($4, 2, 11)}' acces.log | sort | uniq -c | sort -nr | head -n 5>
+-<substr($4, 2, 11)>: signifie, dans la colonne 4, prends a partir du 2eme carctere et garde les 11 caracteres suivant(ex: 25/sep/2026 )
