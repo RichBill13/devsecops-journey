@@ -69,3 +69,21 @@ Ils permettent de se connecter au code d'autres personnes.
 c'est un module qui permet a votre programme de se comporter comme un navigateur web. Elle permet d'envoyer des requettes HTTP et de recevoir la reponse du serveur directement dans le code.
 Pour une meilleur comprehension du module <requests> voir le fichier 
 [Ouvrir mon fichier](../weekly-reviews/python-reviews/itunes.py)
+
+## response = requests.get("https://itunes.apple.com/search?entity=song&limit=50&term=" + sys.argv[1])
+-<requests>: il prend l'adresse URL, sort de mon ordinateur, traverse internet et va frapper a la porte des serveurs apple
+-<GET>: c'est l'action HTTP standard pour dire "donne moi/recupere ces informations"
+-<entity=song>: je veux uniquement des chansons
+-<limit=50>: envoi moi 50 resultats maximum
+-<term + sys.argv[1]>: recherche ce mot
+-<response>: recoit le plateau renvoye par apple(qui contient le statut HTTP, les en-tetes et le texte de la reponse)
+
+## o = response.json()
+le serveur apple renvoi les donnees brutes sous forme d'un long texte au format JSON
+-la methode <.json()> prend ce texte brut et le convertit automatiquement en une structure que python comprend parfaitement
+-la variable <o> devient donc un dictionnaire python classique.
+
+## for result in o["results"]: print(result["trackName"])
+-<o["results"]>: accede a la liste contenant les 50 chansons renvoyees par apple.
+-la boucle <for> passe pour chaque chanson (result) une par une.
+-<result["trackName"]>: va chercher la valeur associe  a la cle <"trackName">(le nom de la chanson) et l'affiche dans le terminal.
