@@ -37,4 +37,4 @@
 
 
 entrees: la commande en input, texte, repetees
-etat/memoire:
+etat/memoire
