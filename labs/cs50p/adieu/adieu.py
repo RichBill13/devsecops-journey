@@ -11,7 +11,7 @@ while True:
         if nom != "":
             noms.append(nom)
     except EOFError:
-        
+        print("")
 
         ## security: check if there's at least one name
         if len(noms) < 1:
