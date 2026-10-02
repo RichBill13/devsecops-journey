@@ -87,3 +87,8 @@ le serveur apple renvoi les donnees brutes sous forme d'un long texte au format 
 -<o["results"]>: accede a la liste contenant les 50 chansons renvoyees par apple.
 -la boucle <for> passe pour chaque chanson (result) une par une.
 -<result["trackName"]>: va chercher la valeur associe  a la cle <"trackName">(le nom de la chanson) et l'affiche dans le terminal.
+
+## raise & except
+-<except>: tout seul, lui il sert a gerer les erreurs de python(des bugs informatiques), il protege mon code contre les plantages de l'orfinateur(lettres a la place de chiffres, fichiers manquants, coupures reseau)
+-<raise>:(qui sera capture par notre <except>) pour imposer nos propres limites et interdictions
+-apres avoir intercepter l'erreur avec <except> il faut mettre au moins une instruction a la suite, on a le choix entre ces 3:<continue>(recommencer silencieusement), <pass>(si on veut que le programme continue sa route comme si de rien n'etait), <nombre = 1>(si la saisie echoue et qu'on decide que la variable va prendre une autre valeur de secour automatiquement)
