@@ -14,13 +14,14 @@ if len(sys.argv) == 3 and (sys.argv[1] == "-f" or sys.argv[1] == "--font"):
     if font_name in list_font:
         figlet.setFont(font = font_name)
     else:
-        print(" the font doesn't exit. try again")
+        print("Invalid usage")
         sys.exit(1)
 # verification if there's only one argument
 elif len(sys.argv) == 1:
     font1 = choice(list_font)
     figlet.setFont(font = font1)
 else:
+    print("Invalid usage")
     sys.exit(1)
 
 x = input("Input: ")
