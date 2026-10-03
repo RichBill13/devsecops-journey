@@ -92,3 +92,6 @@ le serveur apple renvoi les donnees brutes sous forme d'un long texte au format 
 -<except>: tout seul, lui il sert a gerer les erreurs de python(des bugs informatiques), il protege mon code contre les plantages de l'orfinateur(lettres a la place de chiffres, fichiers manquants, coupures reseau)
 -<raise>:(qui sera capture par notre <except>) pour imposer nos propres limites et interdictions
 -apres avoir intercepter l'erreur avec <except> il faut mettre au moins une instruction a la suite, on a le choix entre ces 3:<continue>(recommencer silencieusement), <pass>(si on veut que le programme continue sa route comme si de rien n'etait), <nombre = 1>(si la saisie echoue et qu'on decide que la variable va prendre une autre valeur de secour automatiquement)
+
+## Principe de la programmation defensive
+en informatique, on applique le principe de la programmation defensive. Des que notre code depend d'une <source externe>(un fichier, un utilisateur, ou une API sur internet), on ne peut jamais etre sur a 100% de ce que nous allons recevoir. le bloc <try> est la ceinture de securite qui garantit que l'application reste stable, peu importe ce que l'API lui envoie.
