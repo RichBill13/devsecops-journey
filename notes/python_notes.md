@@ -95,3 +95,9 @@ le serveur apple renvoi les donnees brutes sous forme d'un long texte au format 
 
 ## Principe de la programmation defensive
 en informatique, on applique le principe de la programmation defensive. Des que notre code depend d'une <source externe>(un fichier, un utilisateur, ou une API sur internet), on ne peut jamais etre sur a 100% de ce que nous allons recevoir. le bloc <try> est la ceinture de securite qui garantit que l'application reste stable, peu importe ce que l'API lui envoie.
+
+## Test unitaires
+Dans l'industrie, il est courant d'ecrire du code pour tester ses propres programmes
+-<assert>: est une commande python qui permet d'indiquer a l'interpreteur qu'une assertion est vraie
+-<pytest>: c'est une bibliotheque tierce qui nous permet de realiser des tests unitaires sur notre programme. Autrement dit, grace a la bibliotheque <pytest>, nous pouvons tester les fonctions de notre programme.(<pip install pytest>)
+-<chaine de test>:
